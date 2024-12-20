@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+}
+
+.container1{
+    padding: 20px;
+    padding-top: 55px;
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.compare-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.card h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-weight: bold;
+}
+
+.back-link {
+    display: inline-block; /* Pastikan hanya selebar teks */
+    padding: 10px 20px; /* Jarak di dalam tombol */
+    background-color: #007bff; /* Warna tombol */
+    color: white; /* Warna teks */
+    border-radius: 5px; /* Membuat sudut tombol melengkung */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    margin-top: 20px; /* Jarak vertikal */
+    text-align: center; /* Pusatkan teks */
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .compare-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.card.dark-mode {
+    background-color: #444;
+    color: #fff;
+}
+
+.back-link.dark-mode {
+    background-color: #007bff;
+}
+
+.back-link.dark-mode:hover {
+    background-color: #0056b3;
+}
+
+.device-image {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+}

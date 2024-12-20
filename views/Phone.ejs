@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Specifications</title>
+    <link rel="stylesheet" href="/gadget1.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container1">
+    <a href="/#deviceselection" class="back-link">Back to Device Selection</a>
+    <button id="darkModeToggle" class="back-link">Switch to Dark Mode</button>
+    <h1>Phone Specifications</h1>
+
+    <nav class="brand-nav">
+        <a href="/Phone">All</a> |
+        <a href="/phone/category/Samsung">Samsung</a> |
+        <a href="/phone/category/Apple">Apple</a> |
+        <a href="/phone/category/Xiaomi">Xiaomi</a>
+        <!-- <a href="/phone/category/Oppo">Oppo</a> -->
+    </nav>
+    
+    <hr>
+    <% if (selectedBrand) { %>
+        <h2>Brand: <%= selectedBrand %></h2>
+    <% } else { %>
+        <h2>All Phones</h2>
+    <% } %>
+    
+    <% if (phones.length === 0) { %>
+        <p>No phones found for <%= selectedBrand || 'all brands' %>.</p>
+    <% } else { %>
+        <div class="phone-cards">
+            <form action="/compare" method="get">
+                <% phones.forEach(phone => { %>
+                    <div class="card">
+                        <h3><%= phone.model_name %></h3>
+                        <p>Brand: <%= phone.brand %></p>
+                        <p>Specifications: <%= phone.resolution %>, <%= phone.ram_size %> GB RAM</p>
+                        
+                        <!-- Checkbox for selecting phones -->
+                        <input type="checkbox" name="devices" value="<%= phone.id %>">
+                        
+                        <!-- Link to phone specifications -->
+                        <a href="/phone/<%= phone.id %>" class="details-link btn">View Details</a>
+                    </div>
+                <% }); %>
+                <button type="submit" id="compareButton" style="display: none;" class="comparebutton">Compare Selected Phones</button>
+                <input type="hidden" name="category" value="Phone">
+            </form>
+        </div>
+    <% } %>
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+    
+        // Cek apakah dark mode sudah diaktifkan sebelumnya
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = 'Switch to Light Mode';
+        }
+    
+        // Event listener untuk tombol dark mode
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+    
+            // Menyimpan preferensi pengguna di localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.textContent = 'Switch to Light Mode';
+            } else {
+                localStorage.removeItem('darkMode');
+                darkModeToggle.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+        <script>
+            const compareButton = document.getElementById('compareButton');
+            const checkboxes = document.querySelectorAll('input[name="devices"]');
+    
+            function toggleCompareButton() {
+                const selectedDevices = document.querySelectorAll('input[name="devices"]:checked');
+                
+                if (selectedDevices.length >= 2) {
+                    compareButton.style.display = 'inline-block'; // Show button if 2 or more devices selected
+                } else {
+                    compareButton.style.display = 'none'; // Hide button if less than 2 devices selected
+                }
+            }
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', toggleCompareButton);
+            });
+    
+            // Initial check on page load
+            toggleCompareButton();
+        </script>
+    </div>
+        <%- include('partials/footer') %>
+</body>
+</html>

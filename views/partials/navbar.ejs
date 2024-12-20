@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;900&display=swap" rel="stylesheet">
+</head>
+<nav>
+    <div class="navbar">
+        <div class="navbar-left">
+            <!-- Kondisional untuk #home -->
+            <% if (user) { %>
+                <a href="/profile">Specify</a>
+            <% } else { %>
+                <a href="/">Specify</a>
+            <% } %>
+            <!-- <a href="/Kategori">Category</a> -->
+        </div>
+        <div>
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Search Device Type">
+                <!-- <button type="submit">Search</button> -->
+            </form>
+        </div>
+        <div class="navbar-right">
+            <a href="/#about">About</a>
+            <% if (user) { %>
+                <!-- <span>Welcome, <%= user.username %>!</span> -->
+                <a href="/logout">Logout</a>
+            <% } else { %>
+                <a href="/login">Login</a>
+            <% } %>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= laptop.model_name %> Specifications</title>
+    <link rel="stylesheet" href="/Details.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container1">
+    <a href="/#deviceselection" class="back-link">Back to Device Selection</a>
+    <div class="card">
+        <h1><%= laptop.model_name %></h1>
+        <p><strong>Brand:</strong> <%= laptop.brand %></p>
+        <p><strong>Battery Capacity:</strong> <%= laptop.battery_capacity %> mAh</p>
+        <p><strong>Pixel Density:</strong> <%= laptop.pixel_density %> ppi</p>
+        <p><strong>RAM Size:</strong> <%= laptop.ram_size %> GB</p>
+        <p><strong>Resolution:</strong> <%= laptop.resolution %></p>
+        <p><strong>CPU Speed:</strong> <%= laptop.cpu_speed %></p>
+        <p><strong>Screen Size:</strong> <%= laptop.screen_size %> inches</p>
+        <p><strong>Storage Size:</strong> <%= laptop.storage_size %> GB</p>
+        <p><strong>Bluetooth Version:</strong> <%= laptop.bluetooth_version %></p>
+
+        <p><strong>Laptop Image:</strong></p>
+        <img src="<%= laptopImage %>" alt="<%= laptop.model_name %>" class="device-image">
+    </div>
+    <a href="/laptop" class="back-link">Back to Laptops</a>
+    <hr>
+    <h3>Reviews:</h3>
+    <ul>
+        <% if (reviews.length > 0) { %>
+            <% reviews.forEach(function(review) { %>
+                <li><strong><%= review.username %>:</strong> <%= review.review_text %></li>
+            <% }) %>
+        <% } else { %>
+            <li>No reviews yet.</li>
+        <% } %>
+    </ul>
+
+    <hr>
+    <h3>Leave a Review:</h3>
+    <% if (user) { %>
+        <form action="/laptop/<%= laptop.id %>/review" method="POST">
+            <textarea name="review_text" placeholder="Write your review here..."></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    <% } else { %>
+        <p>You must be logged in to leave a review.<a href="/login"> Login</a></p>
+
+    <% } %>
+    
+    <!-- <a href="/laptop">Back to All Laptops</a> -->
+    
+    <script>
+        const currentMode = localStorage.getItem("darkMode") === "enabled" ? "enabled" : "disabled";
+        if (currentMode === "enabled") {
+            document.body.classList.add("dark-mode");
+            document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
+            document.querySelector(".back-link").classList.add("dark-mode");
+        }
+
+        document.getElementById("darkModeToggle").addEventListener("click", () => {
+            const isDarkMode = document.body.classList.contains("dark-mode");
+            
+            if (isDarkMode) {
+                document.body.classList.remove("dark-mode");
+                document.querySelectorAll(".card").forEach(card => card.classList.remove("dark-mode"));
+                document.querySelector(".back-link").classList.remove("dark-mode");
+                localStorage.setItem("darkMode", "disabled");
+            } else {
+                document.body.classList.add("dark-mode");
+                document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
+                document.querySelector(".back-link").classList.add("dark-mode");
+                localStorage.setItem("darkMode", "enabled");
+            }
+        });
+    </script>
+    </div>
+<%- include('partials/footer') %>
+</body>
+</html>

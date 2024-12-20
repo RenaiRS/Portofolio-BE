@@ -1,0 +1,44 @@
+footer {
+    background-color: #1f1f1f;
+    /* padding: 20px; */
+    padding: 60px 80px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+footer .section {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

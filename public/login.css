@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container1 {
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.loginbox {
+    margin: 0 auto;
+    margin-top: 60px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 600px;
+    height: 450px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loginbox h1 {
+    display: flex;
+    padding-top: 35px;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.loginbox input.username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.loginbox input.password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.loginbox input.username:focus,
+.loginbox input.password:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.loginbox button.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    margin-top: 70px;
+    padding: 15px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.loginbox button.submit:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.loginbox button.submit:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+.container1 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:50px 0 80px 0 ;
+}
+

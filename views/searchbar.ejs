@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/searchbar.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container1">
+    <h1>Search Results for: "<%= query %>"</h1>
+
+    <% if (laptopResults.length > 0) { %>
+        <h2>Laptops:</h2>
+        <form action="/compare" method="get">
+            <input type="hidden" name="category" value="Laptop">
+            <ul>
+                <% laptopResults.forEach(laptop => { %>
+                    <li>
+                        <a href="/laptop/<%= laptop.id %>" class="device1"><%= laptop.model_name %></a> - Brand: <%= laptop.brand %>
+
+                        <input type="checkbox" name="devices" value="<%= laptop.id %>">
+                    </li>
+                <% }); %>
+            </ul>
+            <button type="submit">Compare Selected Devices</button>
+        </form>
+    <% } else { %>
+        <p>No laptops found for "<%= query %>"</p>
+    <% } %>
+    
+    <% if (phoneResults.length > 0) { %>
+        <h2>Phones:</h2>
+        <form action="/compare" method="get">
+            <input type="hidden" name="category" value="Phone">
+            <ul>
+                <% phoneResults.forEach(phone => { %>
+                    <li>
+                        <a href="/phone/<%= phone.id %>" class="device1"><%= phone.model_name %></a> - Brand: <%= phone.brand %>
+                        
+                        <input type="checkbox" name="devices" value="<%= phone.id %>">
+                    </li>
+                <% }); %>
+            </ul>
+            <button type="submit">Compare Selected Devices</button>
+        </form>
+    <% } else { %>
+        <p>No phones found for "<%= query %>"</p>
+    <% } %>
+</div>
+    <%- include('partials/footer') %>
+</body>
+</html>

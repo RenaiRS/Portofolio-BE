@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container1{
+    padding: 20px;
+    padding-top: 55px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.brand-nav {
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 100;
+}
+
+.brand-nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.brand-nav a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.brand-section {
+    margin-bottom: 50px;
+}
+
+.brand-section h2 {
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .brand-nav a {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .brand-nav a {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+}
+
+button{
+    all: unset;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode .card h3, .dark-mode .card p {
+    color: #fff;
+}
+
+.dark-mode .brand-nav a {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .brand-nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.dark-mode .card {
+    background-color: #444;
+    border: 1px solid #555;
+}
+
+.dark-mode .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.back-link.dark-mode {
+    background-color: #007bff;
+}
+
+.back-link.dark-mode:hover {
+    background-color: #0056b3;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Warna hijau untuk tombol */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Warna hijau lebih gelap saat hover */
+    transform: scale(1.05); /* Sedikit pembesaran saat hover */
+}
+
+.btn:active {
+    transform: scale(0.95); /* Efek klik */
+    background-color: #1e7e34; /* Warna lebih gelap lagi saat aktif */
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #218838;
+}

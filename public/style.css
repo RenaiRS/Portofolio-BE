@@ -1,0 +1,286 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url('https://cdn.sanity.io/images/rr4gza81/production/eb8028024b873145ed22eb9498def5fd80bb9cee-5824x3264.png?w=1920&h=1076&auto=format');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: center 1px;
+    font-family: "Poppins";
+    background-clip: 60px;
+}
+
+.midtext h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+.midtext h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.midtext {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 300px;
+    text-shadow: 0 10px 15px black;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    height: 60px;
+    background-color: black;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* justify-content: space-between; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.navbar-left{
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    padding: 50px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover{
+    color: #d2d2d2;
+}
+
+.navbar input {
+    border: 0px solid;
+    border-radius: 20px;
+    height: 30px;
+    width: 500px;
+    padding-left: 10px;
+}
+
+.navbar-right{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.hero {
+    width: 100%;
+    height: 130vh;
+}
+
+.hero1 {
+    width: 100%;
+    height: auto;
+    padding-bottom: 200px;
+}
+
+.about {
+    padding: 100px 0 30px 0;
+    text-align: center;
+    font-size: 30px;
+    max-width: 600px;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 1px 1.5px black;
+    margin: 0px auto;
+}
+
+.choose {
+    padding: 0px 0 40px 0;
+    text-align: center;
+    font-size: 30px;
+    max-width: 600px;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 1px 1.5px black;
+    margin: 0px auto;
+}
+
+/* .aboutsection {
+    display: flex;
+    margin: 20px auto 80px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+
+.aboutimg {
+    width: 200px;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 5px;
+} */
+
+.aboutsection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 200px;
+    padding: 0px 200px;
+    margin-bottom: 200px;
+}
+
+.aboutsection p{
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 0 1px 1.5px black;
+}
+
+.aboutimg {
+    width: 100%;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+.custom-shape-divider-bottom-1731779541 {
+    position: absolute;
+    bottom: -112px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1731779541 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 90px;
+}
+
+.custom-shape-divider-bottom-1731779541 .shape-fill {
+    fill: #f6f3f3;
+}
+
+footer {
+    background-color: #1f1f1f;
+    /* padding: 20px; */
+    padding: 60px 80px;
+}
+
+footer .section {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.deviceselection {
+    display: flex;
+    /* grid-template-columns: repeat(3, 1fr); */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.deviceselection a{
+    text-decoration: none;
+    color: black;
+}
+
+.devicebox1 {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/810/931/original/open-laptop-with-white-screen-laptop-layout-in-flat-style-isolated-on-white-background-device-screen-layout-illustration-vector.jpg');
+    background-size: cover;
+    height: 250px;
+    width: 400px;
+    border: 3px solid gray;
+    border-radius: 30px;
+    margin-inline: 30px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba( 0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.devicebox2 {
+    background-image: url('https://img.freepik.com/premium-vector/new-smartphone-perspective-realistic-mockup_66219-1220.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    width: 400px;
+    border: 3px solid gray;
+    border-radius: 30px;
+    margin-inline: 30px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba( 0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.devicebox1 h3{
+    padding-top: 5px;
+}
+
+.devicebox2 h3{
+    padding-top: 5px;
+}
+
+.devicebox1:hover{
+    /* background-color: #e0e0e0; */
+    transform: scale(1.05);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.devicebox2:hover{
+    /* background-color:  #e0e0e0; */
+    transform: scale(1.05);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.devicebox h3 {
+    position: relative;
+    margin: 30px;
+}

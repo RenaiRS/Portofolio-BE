@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+}
+
+.container1 {
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card strong {
+    font-weight: bold;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.card.dark-mode {
+    background-color: #444;
+    color: #fff;
+}
+
+.back-link.dark-mode {
+    background-color: #007bff;
+}
+
+.back-link.dark-mode:hover {
+    background-color: #0056b3;
+}
+
+form textarea {
+    width: 100%;               /* Memastikan textarea mengisi lebar container */
+    height: 120px;             /* Ukuran tinggi textarea */
+    padding: 12px;             /* Memberikan padding dalam textarea */
+    font-size: 16px;           /* Ukuran font yang mudah dibaca */
+    border: 2px solid #ddd;    /* Border dengan warna abu-abu terang */
+    border-radius: 10px;       /* Sudut membulat */
+    background-color: #f9f9f9; /* Latar belakang yang lebih terang */
+    color: #333;               /* Warna teks */
+    font-family: 'Arial', sans-serif; /* Font sans-serif yang modern */
+    resize: vertical;          /* Membatasi ukuran hanya vertikal */
+    box-sizing: border-box;    /* Menghitung padding dalam ukuran */
+    transition: all 0.3s ease; /* Efek transisi halus */
+}
+
+/* Gaya saat textarea dalam fokus */
+form textarea:focus {
+    border-color: #6c63ff;      /* Border berwarna ungu saat fokus */
+    background-color: #ffffff; /* Latar belakang putih saat fokus */
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.3); /* Bayangan halus berwarna ungu */
+    outline: none;              /* Menghapus outline default */
+}
+
+/* Styling untuk tombol kirim */
+form button {
+    background-color: #6c63ff;  /* Latar belakang ungu tombol */
+    color: white;               /* Warna teks putih */
+    padding: 10px 20px;         /* Padding tombol */
+    border: none;               /* Menghapus border default */
+    border-radius: 30px;        /* Sudut tombol membulat */
+    font-size: 18px;            /* Ukuran font tombol */
+    cursor: pointer;           /* Menunjukkan bahwa tombol dapat diklik */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transisi untuk hover */
+}
+
+/* Gaya saat tombol di-hover */
+form button:hover {
+    background-color: #5a52e3; /* Mengubah warna tombol saat hover */
+    transform: translateY(-2px); /* Memberikan efek angkat tombol saat hover */
+}
+
+.device-image {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+}

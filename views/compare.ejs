@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Devices</title>
+    <link rel="stylesheet" href="/compare.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <div class="container1">
+    <!-- Notifikasi -->
+    <% if (notification) { %>
+        <p style="color: red;"><%= notification %></p>
+    <% } %>
+
+    <!-- Link ke Halaman Utama -->
+    <a href="/#deviceselection" class="back-link">Back to Device Selection</a>
+    <h1>Compare <%= category %>s</h1>
+
+    <!-- Periksa apakah ada perangkat untuk dibandingkan -->
+    <% if (devices.length === 0) { %>
+        <p>No devices selected for comparison.</p>
+    <% } else { %>
+        <div class="compare-container">
+            <% devices.forEach(device => { %>
+                <div class="card">
+                    <h1><%= device.model_name %></h1>
+                    <img src="<%= device.phone_image || device.laptop_image %>" alt="<%= device.model_name %>" class="device-image">
+                    <p><strong>Battery Capacity:</strong> <%= device.battery_capacity %> mAh</p>
+                    <p><strong>Pixel Density:</strong> <%= device.pixel_density %> PPI</p>
+                    <p><strong>RAM Size:</strong> <%= device.ram_size %> GB</p>
+                    <p><strong>Resolution:</strong> <%= device.resolution %></p>
+                    <p><strong>CPU Speed:</strong> <%= device.cpu_speed %></p>
+                    <p><strong>Screen Size:</strong> <%= device.screen_size %> inches</p>
+                    <p><strong>Storage Size:</strong> <%= device.storage_size %> GB</p>
+                    <% if (device.bluetooth_version) { %>
+                        <p><strong>Bluetooth Version:</strong> <%= device.bluetooth_version %></p>
+                    <% } %>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+
+    <!-- Link Kembali ke Semua Perangkat -->
+    <a href="/<%= category.toLowerCase() %>" class="back-link">Back to All <%= category %>s</a>
+
+    <!-- Dark Mode Script -->
+    <script>
+        const currentMode = localStorage.getItem("darkMode") === "enabled" ? "enabled" : "disabled";
+        if (currentMode === "enabled") {
+            document.body.classList.add("dark-mode");
+            document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
+            document.querySelector(".back-link").classList.add("dark-mode");
+        }
+
+        document.getElementById("darkModeToggle").addEventListener("click", () => {
+            const isDarkMode = document.body.classList.contains("dark-mode");
+            
+            if (isDarkMode) {
+                document.body.classList.remove("dark-mode");
+                document.querySelectorAll(".card").forEach(card => card.classList.remove("dark-mode"));
+                document.querySelector(".back-link").classList.remove("dark-mode");
+                localStorage.setItem("darkMode", "disabled");
+            } else {
+                document.body.classList.add("dark-mode");
+                document.querySelectorAll(".card").forEach(card => card.classList.add("dark-mode"));
+                document.querySelector(".back-link").classList.add("dark-mode");
+                localStorage.setItem("darkMode", "enabled");
+            }
+        });
+    </script>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

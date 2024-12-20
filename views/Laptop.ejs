@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Specifications</title>
+    <link rel="stylesheet" href="/gadget.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container1">
+    <a href="/#deviceselection" class="back-link">Back to Device Selection</a>
+    <button id="darkModeToggle" class="back-link">Switch to Dark Mode</button>
+    <h1>Laptop Specifications</h1>
+    <nav class="brand-nav">
+        <a href="/Laptop">All</a> |
+        <a href="/laptop/category/Asus">Asus</a> |
+        <a href="/laptop/category/Dell">Dell</a> |
+        <a href="/laptop/category/Lenovo">Lenovo</a>
+    </nav>
+    <hr>
+    <% if (selectedBrand) { %>
+        <h2>Brand: <%= selectedBrand %></h2>
+    <% } else { %>
+        <h2>All Laptops</h2>
+    <% } %>
+    <% if (laptop.length === 0) { %>
+        <p>No laptops found for <%= selectedBrand || 'all brands' %>.</p>
+    <% } else { %>
+        <div class="laptop-cards">
+            <form action="/compare" method="get">
+                <% laptop.forEach(laptop => { %>
+                    <div class="card">
+                        <h3><%= laptop.model_name %></h3>
+                        <p>Brand: <%= laptop.brand %></p>
+                        <p>Specifications: <%= laptop.ram_size %> GB RAM, <%= laptop.resolution %></p>
+                        <!-- Checkbox for selecting laptops -->
+                        <input type="checkbox" name="devices" value="<%= laptop.id %>">
+                        <!-- Link to laptop specifications -->
+                        <a href="/laptop/<%= laptop.id %>" class="details-link btn">View Details</a>
+                    </div>
+                <% }); %>
+                <!-- Tombol Compare hanya muncul setelah memilih perangkat -->
+                <button type="submit" id="compareButton" style="display: none;" class="comparebutton">Compare Selected Laptops</button>
+                <input type="hidden" name="category" value="Laptop">
+            </form>
+        </div>
+    <% } %>
+    <script>
+        const compareButton = document.getElementById('compareButton');
+        const checkboxes = document.querySelectorAll('input[name="devices"]');
+        function toggleCompareButton() {
+            const selectedDevices = document.querySelectorAll('input[name="devices"]:checked');
+            if (selectedDevices.length >= 2) {
+                compareButton.style.display = 'inline-block'; // Show button if 2 or more devices selected
+            } else {
+                compareButton.style.display = 'none'; // Hide button if less than 2 devices selected
+            }
+        }
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', toggleCompareButton);
+        });
+        // Initial check on page load
+        toggleCompareButton();
+    </script>
+        <script>
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+        
+            // Cek apakah dark mode sudah diaktifkan sebelumnya
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = 'Switch to Light Mode';
+            }
+        
+            // Event listener untuk tombol dark mode
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+        
+                // Menyimpan preferensi pengguna di localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    darkModeToggle.textContent = 'Switch to Light Mode';
+                } else {
+                    localStorage.removeItem('darkMode');
+                    darkModeToggle.textContent = 'Switch to Dark Mode';
+                }
+            });
+        </script>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>
